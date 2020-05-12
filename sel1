@@ -1,0 +1,65 @@
+from selenium import webdriver
+import time
+driver = webdriver.Chrome()
+driver.get("http://www.linkedin.com")
+driver.maximize_window()
+#time.sleep(60)
+driver.implicitly_wait(30)
+driver.find_element_by_xpath("/html/body/nav/a[3]").click()
+driver.implicitly_wait(10)
+print(driver.find_element_by_xpath("//*[@id=\"username\"]").is_enabled())
+# print("1111111111111111111111111111111")
+#driver.find_element_by_xpath("//*[@id=\"username\"]").click()
+driver.implicitly_wait(10)
+time.sleep(5)
+driver.find_element_by_xpath("//*[@id=\"username\"]").send_keys("nikhilgupta.myid@gmail.com")
+print("222222222222222222222")
+driver.implicitly_wait(10)
+print(driver.find_element_by_xpath('//*[@id="password"]').is_enabled())
+driver.implicitly_wait(10)
+# driver.find_element_by_xpath('//*[@id="password"]').click()
+driver.find_element_by_xpath('//*[@id="password"]').send_keys("<password>")
+print("2222222222222222222222222222")
+driver.find_element_by_class_name("btn__primary--large").is_enabled()
+driver.implicitly_wait(10)
+driver.find_element_by_class_name("btn__primary--large").click()
+driver.implicitly_wait(10)
+driver.find_element_by_xpath("//*[@id=\"mynetwork-tab-icon\"]").click()
+driver.implicitly_wait(10)
+list1 = driver.find_elements_by_class_name("artdeco-button--full")
+#list1 = driver.find_elements("data-control-name", "people_connect")
+#list1 = driver.find_elements_by_link_text("Connect")
+for i in list1:
+    print(i.is_enabled())
+    print("3333333333333333333")
+    html = i.get_attribute('outerHTML')
+    print(html)
+    print("44444444444444444444444")
+    i.click()
+    time.sleep(2)
+id = input()
+# n = 0
+# pre = ""
+# print("111111111111")
+# if len(id) == 20:
+#     print("22222222222222222")
+#     n = int(id[15:18])
+#     pre = id[:15]
+# if len(id) == 19:
+#     print("33333333333333333")
+#     n = int(id[14:17])
+#     pre = id[:14]
+
+#driver.find_element_by_xpath(id).click()
+list1 = driver.find_elements_by_class_name("artdeco-button--full")
+for i in list1:
+    i.click()
+    time.sleep(1)
+# print(n)
+# print(pre)
+# for i in range(10):
+#     n1 = n+11
+#     new = pre + str(n1) + "\"]"
+#     n = n1
+#     driver.find_element_by_xpath(new).click()
+#     time.sleep(1)
